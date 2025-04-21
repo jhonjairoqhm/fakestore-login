@@ -6,6 +6,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-lg-0">
+
+          @if (authService.login()) {
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" 
             [routerLink]="['products']" 
@@ -20,6 +22,21 @@
             [routerLinkActiveOptions]="{exact: true}" 
             >Users</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" 
+            (click)="authService.logout()"
+            >Logout</a>
+          </li>
+        }
+        @else {
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" 
+            [routerLink]="['login']" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}" 
+            >Login</a>
+          </li>
+        }
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" 
             [routerLink]="['cart']" 
