@@ -52,3 +52,8 @@ export interface Product {
     username: string;
     password: string;
   }
+
+  export interface ProductItemCart {
+    product: Product;
+    quantity: number;
+  }

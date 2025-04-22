@@ -1,7 +1,7 @@
 <div class="row">
     <!-- Product Images -->
     <div class="col-md-6 mb-4">
-        <img [src]="product?.image" 
+        <img [src]="product.image" 
         alt="Product" 
         class="img-fluid rounded mb-3 product-image" 
         id="mainImage">
@@ -9,9 +9,9 @@
 
     <!-- Product Details -->
     <div class="col-md-6">
-        <h2 class="mb-3">{{product?.title}}</h2>
+        <h2 class="mb-3">{{product.title}}</h2>
         <div class="mb-3">
-            <span class="h4 me-2">{{product?.price | currency }}</span>
+            <span class="h4 me-2">{{product.price | currency }}</span>
         </div>
         <div class="mb-3">
             @for (star of createRange(rate); track $index) {
@@ -20,18 +20,18 @@
             @for (star of createRange(5-rate); track $index) {
             <i class="bi bi-star text-warning"></i>
             }
-            <span class="ms-2">{{rate}} ({{product?.rating?.count}} reviews)</span>
+            <span class="ms-2">{{rate}} ({{product.rating.count}} reviews)</span>
         </div>
         <p class="mb-4">
-            {{product?.description}}
+            {{product.description}}
         </p>
         <div class="mb-4">
             <h5>Category:</h5>
             <p class="mb-4">
-                {{product?.category}}
+                {{product.category}}
             </p>
         </div>
-        <button class="btn btn-primary btn-lg mb-3 me-2">
+        <button class="btn btn-primary btn-lg mb-3 me-2" (click)="addToCart(product)">
                 <i class="bi bi-cart-plus"></i> Add to Cart
         </button>
     </div>
